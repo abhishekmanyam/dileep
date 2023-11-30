@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #hint {
+            display: none;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter PIN:</h2>
+
+    <form id="pinForm">
+        <input type="password" id="pinInput" placeholder="Enter PIN" maxlength="7" />
+        <br><br>
+        <button type="button" onclick="checkPin()">Submit</button>
+    </form>
+
+    <div id="hint">
+        <p>Correct PIN! Here's your hint: [Your Hint Here]</p>
+    </div>
+
+    <script>
+        const correctPin = "PASS"; // Change this to your desired PIN
+        const hintMessage = "Here is your pin for 2nd clue : 15h9 ";
+
+        function checkPin() {
+            const enteredPin = document.getElementById("pinInput").value;
+
+            if (enteredPin === correctPin) {
+                document.getElementById("hint").style.display = "block";
+                document.getElementById("hint").innerHTML = "<p>Correct PIN! Here's your hint: Once you leave where the fire glow, only then will you find sucess as a student <p>" + hintMessage + "</p>";
+            } else {
+                alert("Incorrect PIN. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
